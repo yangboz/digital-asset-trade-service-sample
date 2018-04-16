@@ -14,3 +14,5 @@ https://github.com/blacklabelops/volumerize
 http://exponential.io/blog/2015/02/21/install-postgresql-on-mac-os-x-via-brew/
 
 https://github.com/bitshares/bitshares-ui
+
+https://github.com/web3j/web3j

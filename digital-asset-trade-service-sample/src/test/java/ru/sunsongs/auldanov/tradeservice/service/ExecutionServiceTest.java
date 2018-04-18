@@ -31,14 +31,14 @@ public class ExecutionServiceTest {
     @Test
     public void testCase1() {
         assertThat(executionService.waitingSellOrders(), hasSize(0));
-        executionService.sell(orderData(200, 20));
+        executionService.sell(orderData(200, 20,0));
         assertThat(executionService.waitingSellOrders(), hasSize(1));
-        executionService.sell(orderData(100, 10));
+        executionService.sell(orderData(100, 10,0));
         assertThat(executionService.waitingSellOrders(), hasSize(2));
         assertThat(executionService.executedOrders(100), empty());
-        executionService.buy(orderData(50, 5));
+        executionService.buy(orderData(50, 5,0));
         assertThat(executionService.executedOrders(100), empty());
-        executionService.buy(orderData(50, 30));
+        executionService.buy(orderData(50, 30,0));
         assertThat(executionService.executedOrders(100), Matchers.<List<Execution>>allOf(
                 hasSize(1),
                 hasItem(allOf(hasProperty("quantity", is(50L)),
@@ -59,16 +59,16 @@ public class ExecutionServiceTest {
     @Test
     public void testCase2() {
         assertThat(executionService.waitingBuyOrders(), hasSize(0));
-        executionService.buy(orderData(10, 2));
+        executionService.buy(orderData(10, 2,0));
         assertThat(executionService.waitingBuyOrders(), hasSize(1));
-        executionService.buy(orderData(20, 5));
+        executionService.buy(orderData(20, 5,0));
         assertThat(executionService.waitingBuyOrders(), hasSize(2));
-        executionService.buy(orderData(30, 15));
+        executionService.buy(orderData(30, 15,0));
         assertThat(executionService.waitingBuyOrders(), hasSize(3));
         assertThat(executionService.executedOrders(100), empty());
-        executionService.sell(orderData(40, 20));
+        executionService.sell(orderData(40, 20,0));
         assertThat(executionService.executedOrders(100), empty());
-        executionService.sell(orderData(30, 5));
+        executionService.sell(orderData(30, 5,0));
         assertThat(executionService.executedOrders(100), Matchers.<List<Execution>>allOf(
                 hasSize(2),
                 hasItem(allOf(hasProperty("quantity", is(20L)),
@@ -98,7 +98,7 @@ public class ExecutionServiceTest {
         ));
     }
 
-    private OrderData orderData(long quantity, long price) {
-        return new OrderData(quantity, BigDecimal.valueOf(price));
+    private OrderData orderData(long quantity, long price ,long daid) {
+        return new OrderData(quantity, BigDecimal.valueOf(price),daid);
     }
 }

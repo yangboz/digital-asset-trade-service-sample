@@ -160,6 +160,13 @@
 			<version>1.4.0</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.shekhargulati.reactivex</groupId>
+			<artifactId>rx-docker-client</artifactId>
+			<version>0.2.2</version>
+			<type>jar</type>
+		</dependency>
+
 	</dependencies>
 	
 	<build>

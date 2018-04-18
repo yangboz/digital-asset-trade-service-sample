@@ -11,12 +11,20 @@ public class OrderData {
     private long quantity;
     private BigDecimal price;
 
+    public void setDaid(long daid) {
+        this.daid = daid;
+    }
+
+    private long daid=0;
+
     public OrderData() {
     }
 
-    public OrderData(long quantity, BigDecimal price) {
+    public OrderData(long quantity, BigDecimal price,long daid) {
         this.quantity = quantity;
         this.price = price;
+        this.daid  = daid;
+
     }
 
     public void setQuantity(long quantity) {

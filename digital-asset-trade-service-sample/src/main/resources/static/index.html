@@ -35,6 +35,7 @@
                                 <td>{{b.remain}}</td>
                                 <td>{{b.price}}</td>
                                 <td>{{b.created | date:"dd.MM.yyyy HH:mm:ss"}}</td>
+                                <td><input type="button" value="preview" ng-click="previewBuyOrder($index)"/></td>
                             </tr>
                             </tbody>
                         </table>
@@ -63,6 +64,7 @@
                                     <td>{{s.remain}}</td>
                                     <td>{{s.price}}</td>
                                     <td>{{s.created | date:"dd.MM.yyyy HH:mm:ss"}}</td>
+                                    <td><input type="button" value="preview" ng-click="previewSellOrder($index)"/></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -95,6 +97,7 @@
                         <td>{{e.buyOrder.price}}</td>
                         <td>{{e.quantity}}</td>
                         <td>{{e.created | date:"dd.MM.yyyy HH:mm:ss"}}</td>
+                        <td><input type="button" value="verify" ng-click="verifyTradeOrder($index)"/></td>
                     </tr>
                 </tbody>
             </table>

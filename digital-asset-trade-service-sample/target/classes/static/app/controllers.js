@@ -75,5 +75,17 @@ angular.module("tradeApp.controllers", [])
             $scope.socket.client.onclose = () => setTimeout(initSockets, 10000);
         };
 
-        initSockets()
+        initSockets();
+        //
+        $scope.previewBuyOrder = function (idx) {
+            console.log("$scope.previewBuyOrder:",idx);
+        }
+        $scope.previewSellOrder = function (idx) {
+            console.log("$scope.previewSellOrder:",idx);
+            //
+        }
+        $scope.verifyTradeOrder = function (idx) {
+            console.log("$scope.verifyTradeOrder:",idx);
+            //
+        }
     })

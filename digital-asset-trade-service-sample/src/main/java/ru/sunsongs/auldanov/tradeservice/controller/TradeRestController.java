@@ -1,10 +1,9 @@
 package ru.sunsongs.auldanov.tradeservice.controller;
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 import ru.sunsongs.auldanov.tradeservice.dao.entity.BuyOrder;
 import ru.sunsongs.auldanov.tradeservice.dao.entity.Execution;
 import ru.sunsongs.auldanov.tradeservice.dao.entity.SellOrder;
@@ -33,15 +32,19 @@ public class TradeRestController {
         this.executionService = requireNonNull(executionService);
     }
 
-    @RequestMapping(value = "/api/sell", method = POST)
+//    @RequestMapping(value = "/api/sell", methodod = POST)
     @ResponseStatus(OK)
-    public void sell(@Valid OrderData sellRequest) {
+    @RequestMapping(value = "/api/sell", method = RequestMethod.POST)
+    @ApiOperation(httpMethod = "POST", value = "Response a string describing if the /api/sell is successfully created or not.", notes = "e.g. quantity: 1L,price: 10")
+    public void sell(@RequestBody @Valid OrderData sellRequest) {
         executionService.sell(sellRequest);
     }
 
-    @RequestMapping(value = "/api/buy", method = POST)
+//    @RequestMapping(value = "/api/buy", method = POST)
     @ResponseStatus(OK)
-    public void buy(@Valid OrderData buyRequest) {
+    @RequestMapping(value = "/api/buy", method = RequestMethod.POST)
+    @ApiOperation(httpMethod = "POST", value = "Response a string describing if the /api/buy is successfully created or not.", notes = "e.g. quantity: 1L,price: 10")
+    public void buy(@RequestBody @Valid OrderData buyRequest) {
         executionService.buy(buyRequest);
     }
 

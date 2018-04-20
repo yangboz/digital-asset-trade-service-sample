@@ -24,8 +24,18 @@ import java.net.URISyntaxException;
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "ru.sunsongs.auldanov.tradeservice.dao")
 public class Config extends WebMvcConfigurerAdapter {
-    @Value("${jdbc.driverClassName}")
+
+    @Value("${spring.datasource.driverClassName}")
     private String jdbcDriverClassName;
+
+    @Value("${spring.datasource.url}")
+    private String jdbcUrl;
+
+    @Value("${spring.datasource.username}")
+    private String jdbcUserName;
+
+    @Value("${spring.datasource.password}")
+    private String jdbcPassword;
 
     @Override
     public void configurePathMatch(PathMatchConfigurer configurer) {
@@ -33,22 +43,12 @@ public class Config extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public DataSource dataSource() throws URISyntaxException {
-//        URI dbUri = new URI(System.getenv("DATABASE_URL"));
-        URI dbUri = new URI("postgres://yangboz:@localhost:5432/test");
-
-//        String username = dbUri.getUserInfo().split(":")[0];
-//        String password = dbUri.getUserInfo().split(":")[1];
-//        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
-        String username = "yangboz";
-        String password = "";
-        String dbUrl = "jdbc:postgresql://localhost:5432/test";
-
+    public DataSource dataSource()  {
         final DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(jdbcDriverClassName);
-        dataSource.setUrl(dbUrl);
-        dataSource.setUsername(username);
-        dataSource.setPassword(password);
+        dataSource.setUrl(jdbcUrl);
+        dataSource.setUsername(jdbcUserName);
+        dataSource.setPassword(jdbcPassword);
 
         return dataSource;
     }

@@ -15,6 +15,10 @@ public class OrderData {
         this.daid = daid;
     }
 
+    public long getDaid() {
+        return daid;
+    }
+
     private long daid=0;
 
     public OrderData() {
@@ -24,7 +28,6 @@ public class OrderData {
         this.quantity = quantity;
         this.price = price;
         this.daid  = daid;
-
     }
 
     public void setQuantity(long quantity) {

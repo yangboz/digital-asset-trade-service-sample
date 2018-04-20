@@ -22,6 +22,7 @@
                             <thead>
                             <tr>
                                 <th>#</th>
+                                <th>DigitalAssetID</th>
                                 <th>Quantity</th>
                                 <th>Remain</th>
                                 <th>Price</th>
@@ -31,6 +32,7 @@
                             <tbody>
                             <tr ng-repeat="b in buyOrders" ng-class="{danger: b.executed, success: b.new && !b.executed}">
                                 <th scope="row">{{b.id}}</th>
+                                <td>{{b.daid}}</td>
                                 <td>{{b.quantity}}</td>
                                 <td>{{b.remain}}</td>
                                 <td>{{b.price}}</td>
@@ -51,6 +53,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>DigitalAssetID</th>
                                     <th>Quantity</th>
                                     <th>Remain</th>
                                     <th>Price</th>
@@ -60,6 +63,7 @@
                             <tbody>
                                 <tr ng-repeat="s in sellOrders" ng-class="{danger: s.executed, success: s.new && !s.executed}">
                                     <th scope="row">{{s.id}}</th>
+                                    <td>{{s.daid}}</td>
                                     <td>{{s.quantity}}</td>
                                     <td>{{s.remain}}</td>
                                     <td>{{s.price}}</td>
@@ -80,6 +84,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>DigitalAssetID</th>
                         <th>Sell identity</th>
                         <th>Sell price</th>
                         <th>Buy identity</th>
@@ -91,6 +96,7 @@
                 <tbody>
                     <tr ng-repeat="e in executed" ng-class="{success: e.new}">
                         <th scope="row">{{e.id}}</th>
+                        <td>{{e.sellOrder.daid}}</td>
                         <td>{{e.sellOrder.id}}</td>
                         <td>{{e.sellOrder.price}}</td>
                         <td>{{e.buyOrder.id}}</td>

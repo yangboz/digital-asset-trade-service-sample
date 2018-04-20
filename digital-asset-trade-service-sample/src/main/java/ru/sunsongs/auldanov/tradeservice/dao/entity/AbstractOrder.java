@@ -20,6 +20,17 @@ abstract class AbstractOrder extends AbstractEntity {
     private Date created;
     private long version;
 
+    @Column(name = "daid")
+    public long getDaid() {
+        return daid;
+    }
+
+    public void setDaid(long daid) {
+        this.daid = daid;
+    }
+
+    private long daid;
+
     public AbstractOrder() {
     }
 
@@ -28,6 +39,7 @@ abstract class AbstractOrder extends AbstractEntity {
         this.price = orderData.getPrice();
         this.quantity = orderData.getQuantity();
         this.remain = this.quantity;
+        this.daid = orderData.getDaid();
     }
 
     @Min(0)

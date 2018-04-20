@@ -7,12 +7,37 @@ It's a simple trading service written using java8, Spring Framework, Spring Boot
 cd digital-asset-trade-service-sample
 ```
 
+## Bower
+
 ```
-bower install
+brew update && brew install bower
 ```
 
 ```
-mvn package && java -jar target/trade-service-0.0.1-SNAPSHOT.jar
+bower install
+```
+## Install postgresql
+
+```
+brew update && brew install postgres
+```
+
+```
+postgres -D /usr/local/var/postgres
+```
+
+```
+createdb `whoami`
+```
+
+## Maven
+
+```
+mvn package -DskipTests=true
+```
+
+```
+java -jar target/trade-service-0.0.1-SNAPSHOT.jar
 ```
 
 ## Swagger-UI

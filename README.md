@@ -40,6 +40,8 @@ mvn package -DskipTests=true
 java -jar target/trade-service-0.0.1-SNAPSHOT.jar
 ```
 
+## Docker
+
 ## Swagger-UI
 
 http://localhost:8080/swagger-ui.html#/trade-rest-controller
